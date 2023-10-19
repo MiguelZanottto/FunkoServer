@@ -41,3 +41,12 @@ Nsrc/main/java/develop/server/exceptions/funkos/FunkoNoAlmacenadoException.java
 Msrc/main/java/develop/server/exceptions/funkos/FunkoNoEncotradoException.java,8\2\82d5dfcf3c20033c6847c43c1102cf5681906737
 j
 :src/main/java/develop/server/services/DatabaseManager.java,6\8\68f08e6275a2abaa651cbb92c904e719986a2e49
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+r
+Bsrc/main/java/develop/server/repositories/crud/CrudRepository.java,d\2\d21948bde2c4e16798f317e7518694c17cffea35
+v
+Fsrc/main/java/develop/server/repositories/funkos/FunkosRepository.java,8\9\89248be65630c46bfc251dd20b55568e7f40e15c
+z
+Jsrc/main/java/develop/server/repositories/funkos/FunkosRepositoryImpl.java,4\4\443f314921fdb1c6b4b35178f03d15f721d0410a
