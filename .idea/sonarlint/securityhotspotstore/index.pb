@@ -68,3 +68,7 @@ u
 Esrc/main/java/develop/server/exceptions/storage/StorageException.java,9\6\96d624fd043c338720e75abdb7310c064dbf80b7
 z
 Jsrc/main/java/develop/server/exceptions/storage/RutaInvalidaException.java,c\2\c2ddc2b2abde8f673edfc3acbab973a1573f569f
+?
+data/funkos.csv,3\a\3a2bc3695360d5ea325ca5a2315ea935154e1d43
+}
+Msrc/main/java/develop/server/services/services/funkos/FunkosNotification.java,7\2\72548a9fbb61bce3750ad8a82e7bf5dfa0da964d
