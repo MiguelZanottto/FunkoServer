@@ -1,0 +1,27 @@
+
+@
+build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
+O
+src/main/java/develop/Main.java,0\c\0c59879e96d8904b2fc2976b8b605732d637ff05
+7
+gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
+^
+.src/main/java/develop/common/models/Funko.java,0\2\0273922ec247ce15f1b3933443e6adee5a74a2f6
+C
+settings.gradle.kts,7\4\749edfcc96398253e5b3416184e95c46621da850
+^
+.src/main/java/develop/common/models/Model.java,c\0\c04e5b8aab3fcc2ad84de8a452638217a8d78a65
+d
+4src/main/java/develop/common/models/IdGenerator.java,0\0\00d96b830d6136501342aac203e3d63e720ba7fc
+^
+.src/main/java/develop/common/models/Login.java,5\8\588d5a0ea0ae0046c5e5021935831d90c3cbeeff
+e
+5src/main/java/develop/common/models/Notificacion.java,1\1\113398cd2370439c45fdf2644b3ba71b1b5e4654
+]
+-src/main/java/develop/common/models/User.java,8\9\89ef237491fb740d8e4ccee07b085e02e785f649
+a
+1src/main/java/develop/common/models/Response.java,5\4\547b7c29be0c13ac9a34d50f316f84dac220f6a1
+`
+0src/main/java/develop/common/models/Request.java,6\4\640f6c91e122b7fea6333f2653f1dae467c5b3f1
+a
+1src/main/java/develop/common/models/MyLocale.java,d\2\d2f8ed74d62e1e5af9cb48437fba2a85b369d872
