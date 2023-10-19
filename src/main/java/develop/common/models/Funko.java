@@ -39,30 +39,4 @@ public class Funko {
                 ", updatedAt=" + updatedAt +
                 '}';
     }
-
-
-    public static UUID getUUID(String uuid) {
-        return uuid.length() > 36? UUID.fromString(uuid.substring(0,36)): UUID.fromString(uuid);
-    }
-
-    public static LocalDate getDate(String date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        return LocalDate.parse(date,formatter);
-    }
-
-    public static Funko getFunko(String linea){
-        String [] campos = linea.split(",");
-        UUID cod = getUUID(campos[0]);
-        String name = campos[1];
-        Model model = Model.valueOf(campos[2]);
-        double price = Double.parseDouble(campos[3]);
-        LocalDate releaseData = getDate(campos[4]);
-        return Funko.builder()
-                .cod(cod)
-                .name(name)
-                .model(model)
-                .price(price)
-                .releaseData(releaseData)
-                .build();
-    }
 }

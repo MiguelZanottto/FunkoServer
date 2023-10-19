@@ -56,3 +56,15 @@ o
 ?src/main/java/develop/server/services/services/cache/Cache.java,e\c\ec94dceb704050014dc734429ba271e99002c75a
 v
 Fsrc/main/java/develop/server/services/services/funkos/FunkosCache.java,5\2\526c32e5940da4a589c020e2474e8eaaa48cee68
+z
+Jsrc/main/java/develop/server/services/services/funkos/FunkosCacheImpl.java,1\6\169e061430619b9de9aea8df2f0e8ee0490a87fc
+s
+Csrc/main/java/develop/server/services/services/storage/Storage.java,5\9\59ab41b2c112553b33ae427e8b4916722c02c0a7
+w
+Gsrc/main/java/develop/server/services/services/funkos/FunkoStorage.java,b\e\be1cda6d714277bcfe7a098e7b11554c1b4a3ed4
+|
+Lsrc/main/java/develop/server/services/services/funkos/FunkosStorageImpl.java,6\c\6c70b4ef0e9fec578d9916ebb89aba6ad7b5187a
+u
+Esrc/main/java/develop/server/exceptions/storage/StorageException.java,9\6\96d624fd043c338720e75abdb7310c064dbf80b7
+z
+Jsrc/main/java/develop/server/exceptions/storage/RutaInvalidaException.java,c\2\c2ddc2b2abde8f673edfc3acbab973a1573f569f
