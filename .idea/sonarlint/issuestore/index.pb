@@ -25,3 +25,9 @@ a
 0src/main/java/develop/common/models/Request.java,6\4\640f6c91e122b7fea6333f2653f1dae467c5b3f1
 a
 1src/main/java/develop/common/models/MyLocale.java,d\2\d2f8ed74d62e1e5af9cb48437fba2a85b369d872
+h
+8src/main/java/develop/common/utils/LocalDateAdapter.java,5\d\5d658375fb6eaa38640a80742f6725db9ce07261
+l
+<src/main/java/develop/common/utils/LocalDateTimeAdapter.java,f\9\f9c05807cb73747fd48190e3485a8423ce0956af
+c
+3src/main/java/develop/common/utils/UuidAdapter.java,b\a\ba972edcc6cb4c332e15013f4988c1907bc05a42
