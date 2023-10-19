@@ -31,3 +31,13 @@ l
 <src/main/java/develop/common/utils/LocalDateTimeAdapter.java,f\9\f9c05807cb73747fd48190e3485a8423ce0956af
 c
 3src/main/java/develop/common/utils/UuidAdapter.java,b\a\ba972edcc6cb4c332e15013f4988c1907bc05a42
+h
+8src/main/java/develop/common/utils/PropertiesReader.java,7\2\723eb0d8ed56ca55b5e58bda52eacbd280fb755e
+r
+Bsrc/main/java/develop/server/exceptions/funkos/FunkoException.java,5\5\55d862e1be5e7addbb04a37710a008ca17ba7084
+~
+Nsrc/main/java/develop/server/exceptions/funkos/FunkoNoAlmacenadoException.java,e\3\e343d67052d01c37c29f2557495afc87a6cda154
+}
+Msrc/main/java/develop/server/exceptions/funkos/FunkoNoEncotradoException.java,8\2\82d5dfcf3c20033c6847c43c1102cf5681906737
+j
+:src/main/java/develop/server/services/DatabaseManager.java,6\8\68f08e6275a2abaa651cbb92c904e719986a2e49

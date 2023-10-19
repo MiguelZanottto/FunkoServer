@@ -1,0 +1,16 @@
+
+Y
+java:S2629B"7Use the built-in formatting to construct this argument.(Éá—àşÿÿÿÿ8ŠÒòÎ´1
+T
+java:S2629T"7Use the built-in formatting to construct this argument.(¶›Ô©8ŠÒòÎ´1
+e
+java:S2095>"HUse try-with-resources or close this "FileReader" in a "finally" clause.(¼“ğş8™ÒòÎ´1
+»
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.( ùÓ‹ÿÿÿÿÿ8©ÒòÎ´1
+c
+java:S3457B"AFormat specifiers should be used instead of string concatenation.(Éá—àşÿÿÿÿ8¹ÒòÎ´1
+c
+java:S3457D"AFormat specifiers should be used instead of string concatenation.(ÇßÛ®ıÿÿÿÿ8¹ÒòÎ´1
+^
+java:S3457T"AFormat specifiers should be used instead of string concatenation.(¶›Ô©8¹ÒòÎ´1
+X	java:S125d"<This block of commented-out lines of code should be removed.(öÓ©Ø8¹ÒòÎ´1
