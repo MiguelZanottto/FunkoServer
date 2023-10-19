@@ -39,8 +39,6 @@ Bsrc/main/java/develop/server/exceptions/funkos/FunkoException.java,5\5\55d862e
 Nsrc/main/java/develop/server/exceptions/funkos/FunkoNoAlmacenadoException.java,e\3\e343d67052d01c37c29f2557495afc87a6cda154
 }
 Msrc/main/java/develop/server/exceptions/funkos/FunkoNoEncotradoException.java,8\2\82d5dfcf3c20033c6847c43c1102cf5681906737
-j
-:src/main/java/develop/server/services/DatabaseManager.java,6\8\68f08e6275a2abaa651cbb92c904e719986a2e49
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -50,3 +48,11 @@ v
 Fsrc/main/java/develop/server/repositories/funkos/FunkosRepository.java,8\9\89248be65630c46bfc251dd20b55568e7f40e15c
 z
 Jsrc/main/java/develop/server/repositories/funkos/FunkosRepositoryImpl.java,4\4\443f314921fdb1c6b4b35178f03d15f721d0410a
+t
+Dsrc/main/java/develop/server/repositories/users/UsersRepository.java,6\4\64948a901e5aedb9444a4f97f313efdbe73d40e1
+|
+Lsrc/main/java/develop/server/services/services/database/DatabaseManager.java,4\c\4cf79a4a285441ee19d69ee1004620da128bbb8a
+o
+?src/main/java/develop/server/services/services/cache/Cache.java,e\c\ec94dceb704050014dc734429ba271e99002c75a
+v
+Fsrc/main/java/develop/server/services/services/funkos/FunkosCache.java,5\2\526c32e5940da4a589c020e2474e8eaaa48cee68

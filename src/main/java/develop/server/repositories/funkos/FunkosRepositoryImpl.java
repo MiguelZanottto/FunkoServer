@@ -3,7 +3,7 @@ package develop.server.repositories.funkos;
 import develop.common.models.Funko;
 import develop.common.models.IdGenerator;
 import develop.common.models.Model;
-import develop.server.services.DatabaseManager;
+import develop.server.services.services.database.DatabaseManager;
 import io.r2dbc.pool.ConnectionPool;
 import io.r2dbc.spi.Connection;
 import io.r2dbc.spi.Result;
