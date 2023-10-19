@@ -1,0 +1,43 @@
+
+j
+java:S1192>"ODefine a constant instead of duplicating this literal " no encontrado" 4 times.(¼Ø˜ıÿÿÿÿ
+i
+java:S1192>"NDefine a constant instead of duplicating this literal "Funko con id " 3 times.(¼Ø˜ıÿÿÿÿ
+M
+java:S26299"7Use the built-in formatting to construct this argument.(øë”
+R
+java:S2629C"7Use the built-in formatting to construct this argument.(’¸ÆÆùÿÿÿÿ
+M
+java:S2629L"7Use the built-in formatting to construct this argument.(“æ™å
+M
+java:S2629S"7Use the built-in formatting to construct this argument.(÷èºÀ
+R
+java:S2629Y"7Use the built-in formatting to construct this argument.(ØúÜ²ÿÿÿÿÿ
+L
+java:S2629d"7Use the built-in formatting to construct this argument.(üÈ±I
+M
+java:S2629j"7Use the built-in formatting to construct this argument.(—·¬
+M
+java:S2629t"7Use the built-in formatting to construct this argument.(ğ¾¾Ÿ
+W
+java:S34579"AFormat specifiers should be used instead of string concatenation.(øë”
+\
+java:S3457C"AFormat specifiers should be used instead of string concatenation.(’¸ÆÆùÿÿÿÿ
+W
+java:S3457L"AFormat specifiers should be used instead of string concatenation.(“æ™å
+W
+java:S3457S"AFormat specifiers should be used instead of string concatenation.(÷èºÀ
+\
+java:S3457Y"AFormat specifiers should be used instead of string concatenation.(ØúÜ²ÿÿÿÿÿ
+V
+java:S3457d"AFormat specifiers should be used instead of string concatenation.(üÈ±I
+W
+java:S3457j"AFormat specifiers should be used instead of string concatenation.(—·¬
+W
+java:S3457t"AFormat specifiers should be used instead of string concatenation.(ğ¾¾Ÿ
+c
+java:S1128"MRemove this unused import 'develop.exceptions.storage.RutaInvalidaException'.(÷ØÔÄ
+E
+java:S1128"/Remove this unused import 'java.nio.file.Path'.(×²êÂ
+F
+java:S1128"0Remove this unused import 'java.nio.file.Paths'.(áè°¯

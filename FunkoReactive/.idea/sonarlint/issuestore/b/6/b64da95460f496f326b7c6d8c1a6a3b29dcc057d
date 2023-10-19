@@ -1,0 +1,9 @@
+
+k	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÖÒıÿÿÿÿ
+h	java:S116"NRename this field "COD" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÄ–×ıÿÿÿÿ
+C
+java:S2440"(Remove this instantiation of "MyLocale".(ÃÑŸçûÿÿÿÿ
+K
+java:S2209%"5Change this instance-reference to a static reference.(ê…ÆÏ
+K
+java:S2209&"5Change this instance-reference to a static reference.(®­û

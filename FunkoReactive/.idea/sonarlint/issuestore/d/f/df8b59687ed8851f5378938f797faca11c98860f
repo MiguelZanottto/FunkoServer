@@ -1,0 +1,20 @@
+
+k	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÖÒıÿÿÿÿ
+´
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(¥Èæàıÿÿÿÿ
+\
+java:S3457+"AFormat specifiers should be used instead of string concatenation.(„Æ˜Šüÿÿÿÿ
+W
+java:S34578"AFormat specifiers should be used instead of string concatenation.(üÌï
+W
+java:S1126H"AReplace this if-then-else statement by a single return statement.(¨®ß‰
+W
+java:S3457V"AFormat specifiers should be used instead of string concatenation.(ô‹û‰
+V
+java:S1612X";Replace this lambda with method reference 'this::getFunko'.(Æ‰Ü ıÿÿÿÿ
+R
+java:S1612X"7Replace this lambda with method reference 'sink::next'.(Æ‰Ü ıÿÿÿÿ
+W
+java:S3457["AFormat specifiers should be used instead of string concatenation.(”õğ
+W
+java:S3457^"AFormat specifiers should be used instead of string concatenation.(†şÉı
