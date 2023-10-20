@@ -60,8 +60,6 @@ z
 Jsrc/main/java/develop/server/services/services/funkos/FunkosCacheImpl.java,1\6\169e061430619b9de9aea8df2f0e8ee0490a87fc
 s
 Csrc/main/java/develop/server/services/services/storage/Storage.java,5\9\59ab41b2c112553b33ae427e8b4916722c02c0a7
-w
-Gsrc/main/java/develop/server/services/services/funkos/FunkoStorage.java,b\e\be1cda6d714277bcfe7a098e7b11554c1b4a3ed4
 |
 Lsrc/main/java/develop/server/services/services/funkos/FunkosStorageImpl.java,6\c\6c70b4ef0e9fec578d9916ebb89aba6ad7b5187a
 u
@@ -78,3 +76,11 @@ x
 Hsrc/main/java/develop/server/services/services/funkos/FunkosService.java,2\b\2b165188d0420dca8ac1153e34675566a9356c62
 |
 Lsrc/main/java/develop/server/services/services/funkos/FunkosServiceImpl.java,0\1\011e183c8de693f65c35993718982fe23cc0d5af
+x
+Hsrc/main/java/develop/server/services/services/funkos/FunkosStorage.java,3\4\34437a38829dfc63c3e0320aef2e53e7604987eb
+m
+=src/main/java/develop/server/services/token/TokenService.java,b\2\b25bd2e6cd240919fdf7e5b3e506a84ba7f105d0
+l
+<src/main/java/develop/client/exceptions/ClientException.java,d\f\dfaa220bbf96571305a5974f3c617b78594175f7
+X
+(src/main/java/develop/client/Client.java,3\5\35f35dbe85c77211a2be3ee89e8069f60bebd674
