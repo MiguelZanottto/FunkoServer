@@ -72,3 +72,9 @@ Jsrc/main/java/develop/server/exceptions/storage/RutaInvalidaException.java,c\2
 data/funkos.csv,3\a\3a2bc3695360d5ea325ca5a2315ea935154e1d43
 }
 Msrc/main/java/develop/server/services/services/funkos/FunkosNotification.java,7\2\72548a9fbb61bce3750ad8a82e7bf5dfa0da964d
+Å
+Qsrc/main/java/develop/server/services/services/funkos/FunkosNotificationImpl.java,4\b\4b6e4948ad3c2d6f5cdfb627faa488f07028bc37
+x
+Hsrc/main/java/develop/server/services/services/funkos/FunkosService.java,2\b\2b165188d0420dca8ac1153e34675566a9356c62
+|
+Lsrc/main/java/develop/server/services/services/funkos/FunkosServiceImpl.java,0\1\011e183c8de693f65c35993718982fe23cc0d5af

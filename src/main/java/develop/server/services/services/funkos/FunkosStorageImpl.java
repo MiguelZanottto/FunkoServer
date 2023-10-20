@@ -22,7 +22,7 @@ import com.google.gson.GsonBuilder;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public class FunkosStorageImpl implements FunkoStorage {
+public class FunkosStorageImpl implements FunkosStorage {
     private final Logger logger = LoggerFactory.getLogger(FunkosStorageImpl.class);
     private static FunkosStorageImpl instance;
 
