@@ -236,9 +236,7 @@ public class Client {
                 }.getType());
                 System.out.println("🟢 Los funkos solicitado por modelo "+ modelo + " son: "  + responseContent);
             }
-            case ERROR ->
-                    System.err.println("🔴 Error: Funko con modelo: " + modelo + ". " + response.content());
-            default -> throw new ClientException("Error no esperado al obtener funkos por modelo"  + modelo);
+            case ERROR -> System.err.println("🔴 Error al buscar funkos por modelos: " + response.content());
         }
     }
 

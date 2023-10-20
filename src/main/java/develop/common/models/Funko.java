@@ -29,7 +29,7 @@ public class Funko {
     public String toString() {
         return "Funko{" +
                 "id=" + id +
-                ", COD=" + cod +
+                ", cod=" + cod +
                 ", myId=" + myId +
                 ", name='" + name + '\'' +
                 ", model=" + model +
