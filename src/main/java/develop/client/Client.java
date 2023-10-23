@@ -1,6 +1,5 @@
 package develop.client;
 
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -24,10 +23,7 @@ import java.nio.file.Path;
 import java.security.cert.X509Certificate;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static develop.common.models.Request.Type.*;
 
@@ -64,34 +60,36 @@ public class Client {
             Thread.sleep(150);
 
 
-            sedRequestGetAllFunkos(token);
+            sendRequestGetAllFunkos(token);
 
-            var funko = Funko.builder().id(1L).name("Pepe").price(9.0).build();
+            var funko = Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(1L).name("Pepe").price(9.0).model(Model.ANIME).build();
 
             sendRequestPostFunko(token, funko);
 
             sendRequestGetFunkoById(token, "1");
 
 
-            sendRequestPostFunko(token, Funko.builder().id(0L).name("Ana").price(8.0).build());
-            sendRequestPostFunko(token, Funko.builder().id(0L).name("Luis").price(4.0).build());
-            sendRequestPostFunko(token, Funko.builder().id(0L).name("Pedro").price(7.0).build());
-            sendRequestPostFunko(token, Funko.builder().id(0L).name("Sara").price(9.0).build());
+            sendRequestPostFunko(token, Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(2L).name("Pepe2").price(9.0).model(Model.OTROS).build());
+            sendRequestPostFunko(token,Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(3L).name("Pepe3").price(9.0).model(Model.OTROS).build());
+            sendRequestPostFunko(token, Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(4L).name("Pepe4").price(9.0).model(Model.DISNEY).build());
+            sendRequestPostFunko(token, Funko.builder().releaseData(LocalDate.now()).cod(UUID.randomUUID()).id(5L).name("Pepe5").price(9.0).model(Model.MARVEL).build());
 
-            sendRequestGetFunkoByModel(token, "OTRO");
+            sendRequestGetFunkoByModel(token, "OTROS");
 
-            funko = Funko.builder().id(1L).name("Updated").price(10.0).build();
+            funko.setName("Updated");
 
             sendRequestPutFunko(token, funko);
 
             sendRequestDeleteFunko(token, "1");
 
-            sedRequestGetAllFunkos(token);
+            sendRequestGetAllFunkos(token);
 
             sendRequestPutFunko(token, funko);
             sendRequestDeleteFunko(token, "1");
 
-            sedRequestGetAllFunkos(token);
+            sendRequestGetAllFunkos(token);
+
+            sendRequestGetFunkoByReleaseData(token, "2023");
 
             sendRequestSalir();
         } catch (ClientException ex) {
@@ -124,7 +122,7 @@ public class Client {
         System.setProperty("javax.net.ssl.trustStorePassword", myConfig.get("keyPassword"));
 
         SSLSocketFactory clientFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-        SSLSocket socket = (SSLSocket) clientFactory.createSocket(HOST, PORT);
+        socket = (SSLSocket) clientFactory.createSocket(HOST, PORT);
 
         logger.debug("Protocolos soportados: " + Arrays.toString(socket.getSupportedProtocols()));
         socket.setEnabledCipherSuites(new String[]{"TLS_AES_128_GCM_SHA256"});
@@ -146,7 +144,7 @@ public class Client {
         Request request = new Request(LOGIN, loginJson, null, LocalDateTime.now().toString());
         System.out.println("Petición enviada de tipo: " + LOGIN);
         logger.debug("Petición enviada: " + request);
-        // Enviamos la petición
+
         out.println(gson.toJson(request));
 
         try {
@@ -171,7 +169,7 @@ public class Client {
         return myToken;
     }
 
-    private void sedRequestGetAllFunkos(String token) throws ClientException, IOException {
+    private void sendRequestGetAllFunkos(String token) throws ClientException, IOException {
         Request request = new Request(GETALL, null, token, LocalDateTime.now().toString());
         System.out.println("Petición enviada de tipo: " + GETALL);
         logger.debug("Petición enviada: " + request);
@@ -232,13 +230,14 @@ public class Client {
         System.out.println("Respuesta recibida de tipo: " + response.status());
         switch (response.status()) {
             case OK -> {
-                Funko responseContent = gson.fromJson(response.content(), new TypeToken<Funko>() {
+                List<Funko> responseContent = gson.fromJson(response.content(), new TypeToken<List<Funko>>() {
                 }.getType());
-                System.out.println("🟢 Los funkos solicitado por modelo "+ modelo + " son: "  + responseContent);
+                System.out.println("🟢 Los funkos por modelo " + modelo + " son: " + responseContent);
             }
-            case ERROR -> System.err.println("🔴 Error al buscar funkos por modelos: " + response.content());
+            case ERROR -> System.err.println("🔴 Error: " + response.content());
         }
     }
+
 
     private void sendRequestGetFunkoByReleaseData(String token, String anoLanzamiento) throws IOException, ClientException {
         Request request = new Request(GETBYRELEASEDATA, anoLanzamiento, token, LocalDateTime.now().toString());
@@ -254,13 +253,11 @@ public class Client {
         System.out.println("Respuesta recibida de tipo: " + response.status());
         switch (response.status()) {
             case OK -> {
-                Funko responseContent = gson.fromJson(response.content(), new TypeToken<Funko>() {
+                List<Funko> responseContent = gson.fromJson(response.content(), new TypeToken<List<Funko>>() {
                 }.getType());
-                System.out.println("🟢 Los funkos solicitado por ano de lanzamiento "+ anoLanzamiento + " son: "  + responseContent);
+                System.out.println("🟢 Los funkos con ano de lanzamiento " + anoLanzamiento + " son: " + responseContent);
             }
-            case ERROR ->
-                    System.err.println("🔴 Error: Funko con ano de lanzamiento: " + anoLanzamiento + ". " + response.content());
-            default -> throw new ClientException("Error no esperado al obtener funkos por ano de lanzamiento "  + anoLanzamiento);
+            case ERROR -> System.err.println("🔴 Error: " + response.content());
         }
     }
 

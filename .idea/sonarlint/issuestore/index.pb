@@ -84,3 +84,9 @@ l
 <src/main/java/develop/client/exceptions/ClientException.java,d\f\dfaa220bbf96571305a5974f3c617b78594175f7
 X
 (src/main/java/develop/client/Client.java,3\5\35f35dbe85c77211a2be3ee89e8069f60bebd674
+s
+Csrc/main/java/develop/server/exceptions/server/ServerException.java,6\5\659908f51cc00f4d158185d9d7bb72a938f91a05
+_
+/src/main/java/develop/server/ClientHandler.java,b\d\bda0dd79aa3b25763704e8df1a7d89f461e0319c
+X
+(src/main/java/develop/server/Server.java,8\5\85629739ac7e8f9461da98fed076c2e9745bebfe

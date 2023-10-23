@@ -149,8 +149,8 @@ public class ClientHandler extends Thread {
     private void procesasGetById(Request request) throws ServerException {
         procesarToken(request.token());
 
-        var myId = Long.parseLong(request.content());
-        funkosService.findById(myId).subscribe(
+        var id = Long.parseLong(request.content());
+        funkosService.findById(id).subscribe(
                 funko -> {
                     logger.debug("Respuesta enviada: " + funko);
                     var resJson = gson.toJson(funko);
@@ -168,7 +168,8 @@ public class ClientHandler extends Thread {
         var model = request.content();
         funkosService
                 .findAll()
-                .filter(f -> f.getModel().toString().equals(model))
+                .filter(f -> f.getModel().name().equals(model))
+                .collectList()
                 .subscribe(funkos -> {
                     logger.debug("Respuesta enviada: " + funkos);
                     var resJson = gson.toJson(funkos);
@@ -182,6 +183,7 @@ public class ClientHandler extends Thread {
         funkosService
                 .findAll()
                 .filter(f -> f.getReleaseData().getYear() == ano)
+                .collectList()
                 .subscribe(funkos -> {
                     logger.debug("Respuesta enviada: " + funkos);
                     var resJson = gson.toJson(funkos);

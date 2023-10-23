@@ -35,6 +35,24 @@ dependencies {
     implementation("org.mindrot:jbcrypt:0.4")
 }
 
+
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+    // version para compilar y ejecutar en Java 11, subir a 17
+    sourceCompatibility = "17"
+    targetCompatibility = "17"
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "develop.server.Server"
+    }
+    configurations["compileClasspath"].forEach { file: File ->
+        from(zipTree(file.absoluteFile))
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
 tasks.test {
     useJUnitPlatform()
 }

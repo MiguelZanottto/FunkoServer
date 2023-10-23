@@ -25,7 +25,6 @@ public class DatabaseManager {
     private boolean databaseInitTables;
     private String databaseUrl;
 
-    // Constructor privado para que no se pueda instanciar Singleton
     private DatabaseManager() {
         loadProperties();
 
@@ -57,12 +56,10 @@ public class DatabaseManager {
     private synchronized void loadProperties() {
         logger.debug("Cargando fichero de configuración de la base de datos");
         try {
-            var file = ClassLoader.getSystemResource("database.properties").getFile();
             var props = new Properties();
-            props.load(new FileReader(file));
+            props.load(DatabaseManager.class.getClassLoader().getResourceAsStream(("database.properties")));
             databaseUrl = props.getProperty("database.url", "r2dbc:h2:file:///./Funkos?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
             databaseInitTables = Boolean.parseBoolean(props.getProperty("database.initTables", "false"));
-
             logger.debug("La url de la base de datos es: " + databaseUrl);
         } catch (IOException e) {
             logger.error("Error al leer el fichero de configuración de la base de datos " + e.getMessage());
@@ -97,7 +94,6 @@ public class DatabaseManager {
                                 }
                             }
                         }
-                        // logger.debug(scriptContent);
                         Statement statement = connection.createStatement(scriptContent);
                         return Mono.from(statement.execute());
                     } catch (IOException e) {

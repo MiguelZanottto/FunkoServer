@@ -26,10 +26,29 @@ public class Server {
     private static final AtomicLong clientNumber = new AtomicLong(0);
     private static final Logger logger = LoggerFactory.getLogger(Server.class);
     private static final int PUERTO = 3000;
-    private static final FunkosService funkosService = FunkosServiceImpl.getInstance(FunkosRepositoryImpl.getInstance(DatabaseManager.getInstance(), IdGenerator.getInstance()), FunkosNotificationImpl.getInstance(), FunkosStorageImpl.getInstance());
+    private static final FunkosServiceImpl funkosService = FunkosServiceImpl.getInstance(FunkosRepositoryImpl.getInstance(DatabaseManager.getInstance(), IdGenerator.getInstance()), FunkosNotificationImpl.getInstance(), FunkosStorageImpl.getInstance());
 
     public static void main(String[] args) {
         try {
+            funkosService.getNotifications().subscribe(
+                    notificacion -> {
+                        switch (notificacion.getTipo()) {
+                            case NEW:
+                                System.out.println("🟢 Funko insertado: " + notificacion.getContenido());
+                                break;
+                            case UPDATED:
+                                System.out.println("🟠 Funko actualizado: " + notificacion.getContenido());
+                                break;
+                            case DELETED:
+                                System.out.println("🔴 Funko eliminado: " + notificacion.getContenido());
+                                break;
+                        }
+                    },
+                    error -> System.err.println("Se ha producido un error: " + error),
+                    () -> System.out.println("Completado")
+            );
+
+
             var myConfig = readConfigFile();
 
             logger.debug("Configurando TSL");
