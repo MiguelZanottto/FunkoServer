@@ -241,7 +241,7 @@ public class Client {
 
     private void sendRequestGetFunkoByReleaseData(String token, String anoLanzamiento) throws IOException, ClientException {
         Request request = new Request(GETBYRELEASEDATA, anoLanzamiento, token, LocalDateTime.now().toString());
-        System.out.println("Petición enviada de tipo: " + GETBYMODEL);
+        System.out.println("Petición enviada de tipo: " + GETBYRELEASEDATA);
         logger.debug("Petición enviada: " + request);
 
         out.println(gson.toJson(request));

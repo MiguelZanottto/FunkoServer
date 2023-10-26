@@ -8,7 +8,5 @@ import java.util.List;
 
 public interface Storage<T> {
 
-    Mono<Void> exportJson(List<T> data, String file);
-
     Flux<T> importCsv();
 }

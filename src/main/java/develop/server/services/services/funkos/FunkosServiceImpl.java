@@ -8,8 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 import java.util.UUID;
 
 public class FunkosServiceImpl implements FunkosService {
@@ -125,12 +123,6 @@ public class FunkosServiceImpl implements FunkosService {
         cache.clear();
         return funkosRepository.deleteAll()
                 .then(Mono.empty());
-    }
-
-    public Mono<Void> exportFile(String file) {
-        logger.debug("Exportando archivos a Json");
-        List<Funko> funkoList = funkosRepository.findAll().collectList().block();
-        return storage.exportJson(funkoList, file);
     }
 
     public Flux<Notificacion<Funko>> getNotifications() {

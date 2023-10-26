@@ -62,10 +62,6 @@ s
 Csrc/main/java/develop/server/services/services/storage/Storage.java,5\9\59ab41b2c112553b33ae427e8b4916722c02c0a7
 |
 Lsrc/main/java/develop/server/services/services/funkos/FunkosStorageImpl.java,6\c\6c70b4ef0e9fec578d9916ebb89aba6ad7b5187a
-u
-Esrc/main/java/develop/server/exceptions/storage/StorageException.java,9\6\96d624fd043c338720e75abdb7310c064dbf80b7
-z
-Jsrc/main/java/develop/server/exceptions/storage/RutaInvalidaException.java,c\2\c2ddc2b2abde8f673edfc3acbab973a1573f569f
 ?
 data/funkos.csv,3\a\3a2bc3695360d5ea325ca5a2315ea935154e1d43
 }
@@ -90,3 +86,13 @@ _
 /src/main/java/develop/server/ClientHandler.java,b\d\bda0dd79aa3b25763704e8df1a7d89f461e0319c
 X
 (src/main/java/develop/server/Server.java,8\5\85629739ac7e8f9461da98fed076c2e9745bebfe
+s
+Csrc/test/java/develop/repositories/funkos/FunkosRepositoryTest.java,b\1\b1c632665f09b774e9fc0fd2e1b9c33123372585
+q
+Asrc/test/java/develop/repositories/users/UsersRepositoryTest.java,9\d\9dfa9e103a37f5affd0351298d69d98e434393ac
+l
+<src/test/java/develop/services/funkos/FunkosServiceTest.java,a\b\ab2e5a3be0d934d8c699aecd38110f9f984588c4
+l
+<src/test/java/develop/services/funkos/FunkosStorageTest.java,8\a\8a10dd2325319d87eef7a9c4036b711589614a80
+j
+:src/test/java/develop/services/funkos/FunkosCacheTest.java,1\2\120ffdd0eede52bb409a4ebb358ea29562ae0514
