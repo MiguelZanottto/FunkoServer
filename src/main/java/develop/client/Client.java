@@ -52,45 +52,60 @@ public class Client {
 
     public void start() throws IOException {
         try {
-
+            // Hacemos la conexion
             openConnection();
 
+            // Enviamos el Request de Login y almacenados el Token devuelto
             token = sendRequestLogin();
 
             Thread.sleep(150);
 
-
+            // Enviamos un Request para Obtener todos los funkos
             sendRequestGetAllFunkos(token);
 
-            var funko = Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(1L).name("Pepe").price(9.0).model(Model.ANIME).build();
+            // Creamos un funko
+            var funko = Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(91L).name("Pepe").price(9.0).model(Model.ANIME).build();
 
+            // Enviamos el Request para guardar nuestro funko
             sendRequestPostFunko(token, funko);
 
+            // Enviamos el Request para Obtener funko por id
             sendRequestGetFunkoById(token, "1");
 
+            // Enviamos ahora 4 request para guardar 4 funkos
+            sendRequestPostFunko(token, Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(92L).name("Maria").price(9.0).model(Model.OTROS).build());
+            sendRequestPostFunko(token,Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(93L).name("Juan").price(9.0).model(Model.OTROS).build());
+            sendRequestPostFunko(token, Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(94L).name("Carlos").price(9.0).model(Model.DISNEY).build());
+            sendRequestPostFunko(token, Funko.builder().releaseData(LocalDate.now()).cod(UUID.randomUUID()).id(95L).name("Laura").price(9.0).model(Model.MARVEL).build());
 
-            sendRequestPostFunko(token, Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(2L).name("Pepe2").price(9.0).model(Model.OTROS).build());
-            sendRequestPostFunko(token,Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(3L).name("Pepe3").price(9.0).model(Model.OTROS).build());
-            sendRequestPostFunko(token, Funko.builder().releaseData(LocalDate.of(2022, 1,1)).cod(UUID.randomUUID()).id(4L).name("Pepe4").price(9.0).model(Model.DISNEY).build());
-            sendRequestPostFunko(token, Funko.builder().releaseData(LocalDate.now()).cod(UUID.randomUUID()).id(5L).name("Pepe5").price(9.0).model(Model.MARVEL).build());
-
+            // Enviamos Request para obtener funkos por modelo "OTROS"
             sendRequestGetFunkoByModel(token, "OTROS");
 
+            // Modificamos un funko
             funko.setName("Updated");
 
+            // Enviamos Request para modificar el funko con los nuevos cambios
             sendRequestPutFunko(token, funko);
 
-            sendRequestDeleteFunko(token, "1");
+            // Enviamos Request para borrar el funko con id 1
+            sendRequestDeleteFunko(token, "91");
 
+            // Enviamos Request para Obtener todos los funkos de nuevo
             sendRequestGetAllFunkos(token);
 
+            // Enviamos Request para actualizar el Funko (este nos dara error ya que hemos borrado el funko con id 91)
             sendRequestPutFunko(token, funko);
-            sendRequestDeleteFunko(token, "1");
 
+            // Enviamos Request para borrar funko con if 1 (este nos dara error ya que hemos borrado el funko con id 91)
+            sendRequestDeleteFunko(token, "91");
+
+            // Evniamos Request para obtener todos los Funkos
             sendRequestGetAllFunkos(token);
 
+            // Enviamos Request para obtener Funkos por su Año de creacion siendo este 2023
             sendRequestGetFunkoByReleaseData(token, "2023");
 
+            // Finalmente enviamos Request para desloguearnos
             sendRequestSalir();
         } catch (ClientException ex) {
             logger.error("Error: " + ex.getMessage());

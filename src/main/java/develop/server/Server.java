@@ -49,6 +49,9 @@ public class Server {
             );
 
 
+            FunkosServiceImpl funkosService = FunkosServiceImpl.getInstance(FunkosRepositoryImpl.getInstance(DatabaseManager.getInstance(), IdGenerator.getInstance()) , FunkosNotificationImpl.getInstance(), FunkosStorageImpl.getInstance());
+            funkosService.importFile().subscribe(funko -> funkosService.save(funko).block());
+
             var myConfig = readConfigFile();
 
             logger.debug("Configurando TSL");

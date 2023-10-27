@@ -1,5 +1,7 @@
 plugins {
     id("java")
+    //shadowjar
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "develop"
@@ -42,7 +44,7 @@ tasks.withType<JavaCompile> {
     sourceCompatibility = "17"
     targetCompatibility = "17"
 }
-
+/*
 tasks.jar {
     manifest {
         attributes["Main-Class"] = "develop.server.Server"
@@ -52,7 +54,13 @@ tasks.jar {
     }
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
-
+*/
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.shadowJar{
+    manifest{
+        attributes["Main-Class"] = "develop.server.Server"
+    }
 }

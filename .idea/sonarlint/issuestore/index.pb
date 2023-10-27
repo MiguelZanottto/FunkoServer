@@ -1,8 +1,6 @@
 
 @
 build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
-O
-src/main/java/develop/Main.java,0\c\0c59879e96d8904b2fc2976b8b605732d637ff05
 7
 gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
 ^
@@ -35,8 +33,6 @@ h
 8src/main/java/develop/common/utils/PropertiesReader.java,7\2\723eb0d8ed56ca55b5e58bda52eacbd280fb755e
 r
 Bsrc/main/java/develop/server/exceptions/funkos/FunkoException.java,5\5\55d862e1be5e7addbb04a37710a008ca17ba7084
-~
-Nsrc/main/java/develop/server/exceptions/funkos/FunkoNoAlmacenadoException.java,e\3\e343d67052d01c37c29f2557495afc87a6cda154
 }
 Msrc/main/java/develop/server/exceptions/funkos/FunkoNoEncotradoException.java,8\2\82d5dfcf3c20033c6847c43c1102cf5681906737
 :
@@ -96,3 +92,8 @@ l
 <src/test/java/develop/services/funkos/FunkosStorageTest.java,8\a\8a10dd2325319d87eef7a9c4036b711589614a80
 j
 :src/test/java/develop/services/funkos/FunkosCacheTest.java,1\2\120ffdd0eede52bb409a4ebb358ea29562ae0514
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+C
+docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5
