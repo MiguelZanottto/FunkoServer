@@ -14,7 +14,9 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
+/**
+ * Implementacion de la interfaz FunkosRepository para operaciones CRUD de Funkos.
+ */
 public class FunkosRepositoryImpl implements FunkosRepository {
     private static FunkosRepositoryImpl instance;
     private final Logger logger = LoggerFactory.getLogger(FunkosRepositoryImpl.class);
@@ -33,6 +35,11 @@ public class FunkosRepositoryImpl implements FunkosRepository {
         return instance;
     }
 
+    /**
+     * Obtiene todos los Funkos almacenados en la base de datos.
+     *
+     * @return Un Flux que emite todos los Funkos encontrados.
+     */
     @Override
     public Flux<Funko> findAll() {
         logger.debug("Buscando todos los funkos");
@@ -57,6 +64,11 @@ public class FunkosRepositoryImpl implements FunkosRepository {
         );
     }
 
+    /**
+     * Busca Funkos por su nombre del cual coincidan con la cadena proporcionada.
+     * @param nombre El nombre de los Funkos que se buscan.
+     * @return Un Flux que muestra los Funkos encontrados
+     */
     @Override
     public Flux<Funko> findByNombre(String nombre) {
         logger.debug("Buscando todos los funkos por nombre");
@@ -83,6 +95,11 @@ public class FunkosRepositoryImpl implements FunkosRepository {
         );
     }
 
+    /**
+     * Busca un Funko por su ID unico.
+     * @param id El identificador de la entidad que se busca.
+     * @return Un Mono que muestra el Funko encontrado o un valor vacío su no se encuentra
+     */
     @Override
     public Mono<Funko> findById(Long id) {
         logger.debug("Buscando funko por id: " + id);
@@ -109,6 +126,11 @@ public class FunkosRepositoryImpl implements FunkosRepository {
         );
     }
 
+    /**
+     * Guarda un Funko en la base de datos
+     * @param funko La entidad que se va a guardar.
+     * @return Un Mono que muestra el Funko guardado
+     */
     public Mono<Funko> save(Funko funko) {
         logger.debug("Guardando funko: " + funko);
         String sql = "INSERT INTO funkos (cod, MyId, nombre, modelo, precio, fecha_lanzamiento, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -129,6 +151,11 @@ public class FunkosRepositoryImpl implements FunkosRepository {
         );
     }
 
+    /**
+     * Busca un Funko por su UUID unico
+     * @param uuid El UUID del Funko que se busca.
+     * @return Un Mono que muestra el Funko encontrado o un valor vacio si no se encuentra.
+     */
     @Override
     public Mono<Funko> findByUuid(UUID uuid) {
         logger.debug("Buscando funko por uuid: " + uuid);
@@ -155,6 +182,11 @@ public class FunkosRepositoryImpl implements FunkosRepository {
         );
     }
 
+    /**
+     * Actualiza un Funko existente en la base de datos
+     * @param funko La entidad que se va a actualizar.
+     * @return Un Mono que muestra el Funko actualizado.
+     */
     @Override
     public Mono<Funko> update(Funko funko) {
         logger.debug("Actualizando funko: " + funko);
@@ -174,6 +206,11 @@ public class FunkosRepositoryImpl implements FunkosRepository {
         );
     }
 
+    /**
+     * Elimina todos los Funkos en la base de datos
+     * @param id El identificador de la entidad que se va a eliminar.
+     * @return Un Mono que emite un boolean indicando si se realizo el borrado o no.
+     */
     @Override
     public Mono<Boolean> deleteById(Long id) {
         logger.debug("Borrando funko por id: " + id);
@@ -189,6 +226,10 @@ public class FunkosRepositoryImpl implements FunkosRepository {
         );
     }
 
+    /**
+     * Elimina todos los Funkos de la base de datos.
+     * @return Un Mono que completa una vez la eliminacion de los Funkos
+     */
     @Override
     public Mono<Void> deleteAll() {
         logger.debug("Borrando todos los funkos");

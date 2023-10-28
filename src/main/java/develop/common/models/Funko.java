@@ -7,7 +7,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-
+/**
+ * Clase que representa un Funko con sus atributos.
+ */
 @Data
 @Builder
 public class Funko {
@@ -23,7 +25,11 @@ public class Funko {
     @Builder.Default
     private LocalDateTime updatedAt = LocalDateTime.now(); // Fecha de ultima actualizacion del funko
 
-
+    /**
+     * Devuelve una representacion en forma de cadena de Funko.
+     *
+     * @return Cadena que representa el Funko con sus atributos.
+     */
     @Override
     public String toString() {
         return "Funko{" +

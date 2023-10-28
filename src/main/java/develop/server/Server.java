@@ -19,7 +19,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-
+/**
+ * Clase principal que representa el servidor.
+ */
 public class Server {
     public static final String TOKEN_SECRET = "ManoTengoFe";
     public static final long TOKEN_EXPIRATION = 10000;
@@ -28,6 +30,9 @@ public class Server {
     private static final int PUERTO = 3000;
     private static final FunkosServiceImpl funkosService = FunkosServiceImpl.getInstance(FunkosRepositoryImpl.getInstance(DatabaseManager.getInstance(), IdGenerator.getInstance()), FunkosNotificationImpl.getInstance(), FunkosStorageImpl.getInstance());
 
+    /**
+     * Metodo principal que inicia el servidor.
+     */
     public static void main(String[] args) {
         try {
             funkosService.getNotifications().subscribe(
@@ -75,7 +80,11 @@ public class Server {
             System.err.println("Error: " + e.getMessage());
         }
     }
-
+    /**
+     * Lee la configuracion del servidor desde un archivo de propiedades.
+     *
+     * @return Un mapa que contiene la configuracion leida desde el archivo de propiedades.
+     */
     public static Map<String, String> readConfigFile() {
         try {
             logger.debug("Leyendo el fichero de propiedades");

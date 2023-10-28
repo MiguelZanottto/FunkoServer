@@ -16,7 +16,10 @@ import java.time.Duration;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-
+/**
+ * Clase que gestiona la conexion a la base de datos y proporciona metodos para inicializar las tablas,
+ * ejecutando scripts SQL y obteniendo el pool de conexiones.
+ */
 public class DatabaseManager {
     private static DatabaseManager instance;
     private final Logger logger = LoggerFactory.getLogger(DatabaseManager.class);
@@ -45,7 +48,11 @@ public class DatabaseManager {
             initTables();
         }
     }
-
+    /**
+     * Obtiene una instancia de la clase DatabaseManager.
+     *
+     * @return Instancia unica de DatabaseManager.
+     */
     public static synchronized DatabaseManager getInstance() {
         if (instance == null) {
             instance = new DatabaseManager();
@@ -66,7 +73,9 @@ public class DatabaseManager {
         }
     }
 
-
+    /**
+     * Inicializa las tablas de la base de datos SQL.
+     */
     public synchronized void initTables() {
         // Debes hacer un script por accion
         logger.debug("Borrando tablas de la base de datos");
@@ -76,7 +85,12 @@ public class DatabaseManager {
         logger.debug("Tabla de la base de datos inicializada");
     }
 
-
+    /**
+     * Ejecuta un script SQL en la base de datos.
+     *
+     * @param scriptSqlFile Nombre del archivo que contiene el script SQL.
+     * @return Un Mono que se completa cuando el script se ha ejecutado.
+     */
     public Mono<Void> executeScript(String scriptSqlFile) {
         logger.debug("Ejecutando script de inicialización de la base de datos: " + scriptSqlFile);
         return Mono.usingWhen(
@@ -103,7 +117,11 @@ public class DatabaseManager {
                 Connection::close
         ).then();
     }
-
+    /**
+     * Obtiene el pool de conexiones de la base de datos.
+     *
+     * @return Pool de conexiones de la base de datos.
+     */
     public ConnectionPool getConnectionPool() {
         return this.pool;
     }

@@ -1,0 +1,15 @@
+develop.client
+develop.client.exceptions
+develop.common.models
+develop.common.utils
+develop.server
+develop.server.exceptions.funkos
+develop.server.exceptions.server
+develop.server.repositories.crud
+develop.server.repositories.funkos
+develop.server.repositories.users
+develop.server.services.services.cache
+develop.server.services.services.database
+develop.server.services.services.funkos
+develop.server.services.services.storage
+develop.server.services.token

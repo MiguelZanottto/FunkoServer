@@ -25,7 +25,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
-
+/**
+ * Clase que maneja la comunicacion con un cliente a traves de un socket.
+ */
 public class ClientHandler extends Thread {
     private final Logger logger = LoggerFactory.getLogger(ClientHandler.class);
     private final Socket clientSocket;
@@ -77,6 +79,13 @@ public class ClientHandler extends Thread {
         out = new PrintWriter(clientSocket.getOutputStream(), true);
     }
 
+    /**
+     * Maneja una solicitud del cliente y toma acciones en funcion del tipo de solicitud.
+     *
+     * @param request La solicitud del cliente.
+     * @throws IOException      Excepcion de E/S.
+     * @throws ServerException Excepcion de servidor.
+     */
     @SuppressWarnings("unchecked")
     private void handleRequest(Request request) throws IOException, ServerException {
         logger.debug("Petición para procesar: " + request);

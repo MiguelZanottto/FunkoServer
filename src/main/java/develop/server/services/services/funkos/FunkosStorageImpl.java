@@ -12,20 +12,35 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 import reactor.core.publisher.Flux;
-
+/**
+ * Implementacion de la interfaz FunkosStorage que se encarga de importar Funkos desde un
+ * archivo CSV.
+ */
 public class FunkosStorageImpl implements FunkosStorage {
     private final Logger logger = LoggerFactory.getLogger(FunkosStorageImpl.class);
     private static FunkosStorageImpl instance;
 
+    /**
+     * Metodo privado para crear una instancia de FunkosStorageImpl
+     */
     private FunkosStorageImpl() {}
 
+    /**
+     * Obtiene una instancia unica de FunkosStorageImpl.
+     *
+     * @return Una instancia de FunkosStorageImpl
+     */
     public static FunkosStorageImpl getInstance() {
         if (instance == null) {
             instance = new FunkosStorageImpl();
         }
         return instance;
     }
-
+    /**
+     * Importa Funkos desde un archivo CSV y los emite como elementos de un Flux.
+     *
+     * @return Un Flux que emite Funkos importados desde el archivo CSV.
+     */
     @Override
     public Flux<Funko> importCsv() {
         return Flux.create(sink -> {

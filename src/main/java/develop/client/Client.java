@@ -26,7 +26,12 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 import static develop.common.models.Request.Type.*;
-
+/**
+ * Esta clase representa un cliente que se comunica con un servidor.
+ * Proporciona metodos para enviar solicitudes al servidor y gestionar la comunicacion.
+ *
+ * @version 1.0
+ */
 public class Client {
     private static final String HOST = "localhost";
     private static final int PORT = 3000;
@@ -40,7 +45,10 @@ public class Client {
     private BufferedReader in;
     private String token;
 
-
+    /**
+     * Metodo principal que inicia la aplicacion del cliente y si hay un error se muestra en
+     * pantalla un logger con el Error dado.
+     */
     public static void main(String[] args) {
         Client client = new Client();
         try {
@@ -49,7 +57,12 @@ public class Client {
             logger.error("Error: " + e.getMessage());
         }
     }
-
+    /**
+     * Inicia la conexion con el servidor, configurando la comunicacion.
+     * Y cargando la configuracion del cliente desde un archivo de propiedades.
+     *
+     * @throws IOException Si ocurre un error durante la conexion.
+     */
     public void start() throws IOException {
         try {
             // Hacemos la conexion
@@ -116,7 +129,11 @@ public class Client {
             logger.error("Error: " + e.getMessage());
         }
     }
-
+    /**
+     * Cierra la conexion con el servidor y los flujos de entrada/salida.
+     *
+     * @throws IOException Si ocurre un error al cerrar la conexion.
+     */
     private void closeConnection() throws IOException {
         logger.debug("Cerrando la conexión con el servidor: " + HOST + ":" + PORT);
         System.out.println("🔵 Cerrando Cliente");
@@ -127,7 +144,11 @@ public class Client {
         if (socket != null)
             socket.close();
     }
-
+    /**
+     * Abre la conexion con el servidor.
+     *
+     * @throws IOException Si ocurre un error durante la apertura de la conexion.
+     */
     private void openConnection() throws IOException {
         System.out.println("🔵 Iniciando Cliente");
         Map<String, String> myConfig = readConfigFile();
@@ -148,11 +169,15 @@ public class Client {
         out = new PrintWriter(socket.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         System.out.println("✅ Cliente conectado a " + HOST + ":" + PORT);
-
         infoSession(socket);
 
     }
-
+    /**
+     * Envia una solicitud de inicio de sesion al servidor y almacena el token devuelto.
+     *
+     * @return El token de autenticacion obtenido del servidor.
+     * @throws ClientException Si ocurre un error durante la solicitud de inicio de sesion.
+     */
     private String sendRequestLogin() throws ClientException {
         String myToken = null;
         var loginJson = gson.toJson(new Login("pepe", "pepe1234"));
@@ -183,7 +208,13 @@ public class Client {
         }
         return myToken;
     }
-
+    /**
+     * Envia una solicitud al servidor para obtener todos los Funkos disponibles.
+     *
+     * @param token El token de autenticacion del cliente.
+     * @throws ClientException Si se recibe una respuesta inesperada del servidor.
+     * @throws IOException     Si ocurre un error durante la comunicacion con el servidor.
+     */
     private void sendRequestGetAllFunkos(String token) throws ClientException, IOException {
         Request request = new Request(GETALL, null, token, LocalDateTime.now().toString());
         System.out.println("Petición enviada de tipo: " + GETALL);
@@ -207,6 +238,14 @@ public class Client {
         }
     }
 
+    /**
+     * Envia una solicitud al servidor para obtener un Funko por su ID.
+     *
+     * @param token El token de autenticacion del cliente.
+     * @param id    El ID del Funko que se desea obtener.
+     * @throws IOException     Si ocurre un error durante la comunicacion con el servidor.
+     * @throws ClientException Si se recibe una respuesta inesperada del servidor.
+     */
     private void sendRequestGetFunkoById(String token, String id) throws IOException, ClientException {
         Request request = new Request(GETBYID, id, token, LocalDateTime.now().toString());
         System.out.println("Petición enviada de tipo: " + GETBYID);
@@ -230,7 +269,14 @@ public class Client {
             default -> throw new ClientException("Error no esperado al obtener el funko");
         }
     }
-
+    /**
+     * Envia una solicitud al servidor para obtener Funkos por su modelo.
+     *
+     * @param token   El token de autenticacion del cliente.
+     * @param modelo  El modelo de Funko por el cual se desea realizar la busqueda.
+     * @throws IOException     Si ocurre un error durante la comunicacion con el servidor.
+     * @throws ClientException Si se recibe una respuesta inesperada del servidor.
+     */
     private void sendRequestGetFunkoByModel(String token, String modelo) throws IOException, ClientException {
         Request request = new Request(GETBYMODEL, modelo, token, LocalDateTime.now().toString());
         System.out.println("Petición enviada de tipo: " + GETBYMODEL);
@@ -253,7 +299,14 @@ public class Client {
         }
     }
 
-
+    /**
+     * Envia una solicitud al servidor para obtener Funkos por su ano de lanzamiento.
+     *
+     * @param token         El token de autenticacion del cliente.
+     * @param anoLanzamiento El ano de lanzamiento por el cual se desea realizar la busqueda.
+     * @throws IOException     Si ocurre un error durante la comunicacion con el servidor.
+     * @throws ClientException Si se recibe una respuesta inesperada del servidor.
+     */
     private void sendRequestGetFunkoByReleaseData(String token, String anoLanzamiento) throws IOException, ClientException {
         Request request = new Request(GETBYRELEASEDATA, anoLanzamiento, token, LocalDateTime.now().toString());
         System.out.println("Petición enviada de tipo: " + GETBYRELEASEDATA);
@@ -275,7 +328,14 @@ public class Client {
             case ERROR -> System.err.println("🔴 Error: " + response.content());
         }
     }
-
+    /**
+     * Envia una solicitud al servidor para agregar un nuevo Funko.
+     *
+     * @param token El token de autenticacion del cliente.
+     * @param funko El Funko que se desea agregar.
+     * @throws IOException     Si ocurre un error durante la comunicacion con el servidor.
+     * @throws ClientException Si se recibe una respuesta inesperada del servidor.
+     */
     private void sendRequestPostFunko(String token, Funko funko) throws IOException, ClientException {
         var funkoJson = gson.toJson(funko);
         Request request = new Request(POST, funkoJson, token, LocalDateTime.now().toString());
@@ -301,7 +361,14 @@ public class Client {
             default -> throw new ClientException("Error no esperado al insertar el funko");
         }
     }
-
+    /**
+     * Envia una solicitud al servidor para actualizar un Funko existente.
+     *
+     * @param token El token de autenticacion del cliente.
+     * @param funko El Funko con los cambios que se desean aplicar.
+     * @throws IOException     Si ocurre un error durante la comunicacion con el servidor.
+     * @throws ClientException Si se recibe una respuesta inesperada del servidor.
+     */
     private void sendRequestPutFunko(String token, Funko funko) throws IOException, ClientException {
         var funkoJson = gson.toJson(funko);
         Request request = new Request(UPDATE, funkoJson, token, LocalDateTime.now().toString());
@@ -327,6 +394,14 @@ public class Client {
         }
     }
 
+    /**
+     * Envia una solicitud al servidor para eliminar un Funko por su ID.
+     *
+     * @param token El token de autenticacion del cliente.
+     * @param id    El ID del Funko que se desea eliminar.
+     * @throws IOException     Si ocurre un error durante la comunicacion con el servidor.
+     * @throws ClientException Si se recibe una respuesta inesperada del servidor.
+     */
     private void sendRequestDeleteFunko(String token, String id) throws IOException, ClientException {
         Request request = new Request(DELETE, id, token, LocalDateTime.now().toString());
         System.out.println("Petición enviada de tipo: " + DELETE);
@@ -352,7 +427,13 @@ public class Client {
         }
     }
 
-
+    /**
+     * Envía una solicitud al servidor para cerrar la sesion del cliente.
+     * Esta solicitud provoca la desconexion del cliente del servidor.
+     *
+     * @throws IOException     Si ocurre un error durante la comunicación con el servidor.
+     * @throws ClientException Si se recibe una respuesta inesperada del servidor.
+     */
     private void sendRequestSalir() throws IOException, ClientException {
         Request request = new Request(SALIR, null, token, LocalDateTime.now().toString());
         System.out.println("Petición enviada de tipo: " + SALIR);
@@ -375,7 +456,11 @@ public class Client {
             default -> throw new ClientException(response.content());
         }
     }
-
+    /**
+     * Lee la configuracion del cliente desde un archivo de propiedades.
+     *
+     * @return Un mapa que contiene las configuraciones leidas.
+     */
     public Map<String, String> readConfigFile() {
         try {
             logger.debug("Leyendo el fichero de configuracion");
@@ -407,7 +492,11 @@ public class Client {
         }
     }
 
-
+    /**
+     * Lee la configuracion del cliente desde un archivo de propiedades.
+     *
+     * @return Un mapa que contiene las configuraciones leídas.
+     */
     private void infoSession(SSLSocket socket) {
         logger.debug("Información de la sesión");
         System.out.println("Información de la sesión");
